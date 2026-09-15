@@ -1,0 +1,48 @@
+# Panorama training + eval environment. Target: Python 3.11, CUDA 12.4 (torch cu124).
+# Install order matters, see the README (Installation).
+
+# --- core ---
+transformers==4.57.1          # Qwen3-VL support
+peft==0.17.1
+mmengine==0.10.7
+timm==1.0.17
+qwen_vl_utils
+
+# xtuner==0.1.23 is installed separately, last, with --no-deps --ignore-requires-python.
+# Its runtime deps are listed here so this file stays self-contained:
+deepspeed==0.18.0
+bitsandbytes
+datasets
+einops
+sentencepiece
+tiktoken
+transformers-stream-generator
+lagent
+openpyxl
+
+# torch is installed separately from the cu124 index
+torch>=2.6.0
+torchvision
+
+# flash-attn is installed separately from a prebuilt wheel; kept commented so
+# `pip install -r requirements.txt` does not build it from source.
+# flash-attn==2.7.3
+
+# --- data / segmentation eval ---
+pycocotools>=2.0.10
+pycocoevalcap
+scikit-learn
+scipy
+scikit-image
+matplotlib
+numpy
+opencv-python-headless
+tqdm
+Pillow
+decord2==1.0.0
+
+# --- eval metrics ---
+sentence-transformers
+nltk                          # wordnet/omw corpora, see the README
+
+# capture_metric is installed separately so it cannot move the transformers pin.

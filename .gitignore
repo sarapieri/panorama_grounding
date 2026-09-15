@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Eval intermediates: tmp/<jobid>_... is the one scratch root (metrics_panocaps and metrics_gcg
+# both use it and remove their own dir at the end)
+tmp/
+eval_tmp*/
+# RefCOCO eval per-rank gather temp dirs
+dist_test_temp_res_*
+
+# Data unpacked into the repo
+data/PanoCaps/
+data/.cache/
+
+# Scheduler logs
+slurm-*.out
+slurm-*.err
+logs/
+
+# Local environment (real paths), commit .env.example instead
+.env
